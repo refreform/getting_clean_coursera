@@ -1,0 +1,71 @@
+---
+title: "README"
+author: "refreform"
+date: "2025-10-01"
+output: html_document
+---
+
+
+
+The included data_cleaning_script.R cleans the data provided in the UCI HAR Dataset, and does so in the following way:
+Reads the files into memory
+Renames most columns (except X files)
+Combines all datasets into one dataframe, both by joining columns, and then appending the rows of the train set to the test set
+Cleans the X data by breaking it into columns, transforming entries from strings to numerics, and then running the 
+  desired agggregations
+A final couple joins are performed, one for joining the new X aggregations with the other data, and one to use names instead of
+  ids with regard to activites
+This all results in the following data structures:
+
+## Summary
+
+````{final tidy dataset}
+final<-data.frame(feature_mean,feature_std,activity_frame$activity,activity_frame$subject_id)
+````
+
+feature_mean | feature_std | activity | subject_id
+_____________|_____________|__________|___________
+	           |             |          |           
+      	     |             |          |           
+	           |             |          |           
+	           |             |          |           
+      	     |             |          |           
+	           |             |          |           
+      	     |             |          |           
+      	     |             |          |           
+      	     |             |          |           
+
+feature_mean is the mean of all entries for that row of data provided in the X_**** files
+
+feature_std is the standard deviation of all entries for that row of data provided in the X_**** files
+
+subject_id (full name activity_frame.subject_id) is the number associated with the subject of the experiment
+
+activity (full name activity_frame.activity) is the activity performed
+
+
+There is also a summary table which can be understood as follows:
+
+````{final daata summarized}
+summary<-final %>% group_by(activity_frame.subject_id, activity_frame.activity) %>% summarise(mean_mean=mean(feature_mean),std_mean=mean(feature_std))
+````
+
+subject_id | activity | mean_mean | std_mean
+___________|__________|___________|_________
+      	   |          |           |         
+	         |          |           |         
+	         |          |           |         
+      	   |          |           |         
+	         |          |           |         
+      	   |          |           |         
+      	   |          |           |         
+      	   |          |           |         
+      	   |          |           |         
+
+subject_id (full name activity_frame.subject_id) is the same as above
+
+activity (full name activity_frame.activity) is the same as above
+
+mean_mean is the mean of all feature_means for that subject and activity
+
+std_mean is the mean of all feature_stds for that subject and activity
