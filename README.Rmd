@@ -25,12 +25,12 @@ final<-data.frame(feature_mean,feature_std,activity_frame$activity,activity_fram
 
 feature_mean | feature_std | activity | subject_id
 _____________|_____________|__________|___________
-	           |             |          |           
+	         |             |          |           
       	     |             |          |           
-	           |             |          |           
-	           |             |          |           
+	         |             |          |           
+	         |             |          |           
       	     |             |          |           
-	           |             |          |           
+	         |             |          |           
       	     |             |          |           
       	     |             |          |           
       	     |             |          |           
@@ -53,11 +53,11 @@ summary<-final %>% group_by(activity_frame.subject_id, activity_frame.activity) 
 subject_id | activity | mean_mean | std_mean
 ___________|__________|___________|_________
       	   |          |           |         
-	         |          |           |         
-	         |          |           |         
+	       |          |           |         
+	       |          |           |         
       	   |          |           |         
-	         |          |           |         
-      	   |          |           |         
+	       |          |           |         
+           |          |           |         
       	   |          |           |         
       	   |          |           |         
       	   |          |           |         
