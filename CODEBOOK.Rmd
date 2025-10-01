@@ -1,0 +1,30 @@
+---
+title: "CODEBOOK"
+author: "refreform"
+date: "2025-10-01"
+output: html_document
+---
+ 
+6 Variables
+*_file<-STRING These variables store the location of the relevant data files
+activity_labels<-STRING This variable stores the location of the data file for activity name referance
+
+*_raw<-LIST, STRING The raw data read into memory using read.table function
+activity_labels<- LIST, STRING reused variable to now store the actual data for activity name referance
+
+colnames(*)<- This section renames the columns that were brought in during the *_raw steps above
+
+train_set<- DATAFRAME A dataframe storing all data for the features, activity, and subject for the training set of data
+test_set<- DATAFRAME A dataframe storing all data for the features, activity, and subject for the test set of data
+combined_frame<- DATAFRAME A dataframe storing all data for the features, activity, and subject for the both set of data
+
+vect<-LIST NUMERIC Vector the length of the feature data from the combined dataframe
+vect_char<-LIST STRING the same but strings to be used as column names
+x_pre_agg<-DATAFRAME STRING/ NUMERIC Data is now broken out into columns, starts as strings but is coerced into numeric
+
+feature_mean<- LIST, NUMERIC the mean of all features in a row
+feature_std<- LIST, NUMERIC the standard deviation of all features in a row
+activity_frame<- DATAFRAME, STRING AND NUMERIC Joins activity names onto activity data making dataset more readable
+
+final<- DATAFRAME, NUMERIC AND STRING Final tidy dataset that contains all the feature mean and std, subject, and activity
+summary<- DATAFRAME, NUMERIC AND STRING Dataset that summarized the data by subject and activity
